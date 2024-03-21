@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:travel_app/core/constant/screen_util.dart';
+
+import 'functionality/screens/dashboard/dashboard_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -9,22 +14,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DashboardScreen(),
-    );
-  }
-}
-
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Travel Dairy"),
-      ),
+    return ScreenUtilInit(
+        designSize: const Size(375, 812),
+      builder: () {
+        return const GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: DashboardScreen(),
+        );
+      }
     );
   }
 }
